@@ -1,0 +1,22 @@
+{
+  "name": "discordtmplatev13",
+  "version": "1.0.0",
+  "description": "Discord Bot Template made by github.com/CrazyOutOff",
+  "main": "index.js",
+  "scripts": {
+    "nodemon": "nodemon index.js",
+    "insall": "npm ci",
+    "deploy": "node deploy-commands.js"
+  },
+  "keywords": [
+    "github.com/CrazyOutOff"
+  ],
+  "author": "github.com/CrazyOutOff",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/rest": "^0.3.0",
+    "discord-api-types": "^0.27.3",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0"
+  }
+}
