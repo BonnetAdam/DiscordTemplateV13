@@ -17,17 +17,17 @@ client.login(process.env.TOKEN);
 client.on("threadCreate", (thread) => thread.join());
 
 //Handler info
-const SlashCommands = [];
-const Events = [];
-const Commands = [];
+let SlashCommands = [];
+let Events = [];
+let Commands = [];
 
 //Slash Command Handler
-const commandFiles = fs.readdirSync("./slash").filter(fl => fl.endsWith(".js"));
+const SlashCommandFiles = fs.readdirSync("./slash").filter(fl => fl.endsWith(".js"));
 client.commands = new Collection();
 
-commandFiles.forEach(file => {
+SlashCommandFiles.forEach(file => {
     const command = require(`./slash/${file}`)
-    SlashCommands.push(command.data.toJSON())
+    SlashCommands.push(command.data.toJSON().name)
     client.commands.set(command.data.name, command)
 })
 
@@ -52,16 +52,11 @@ client.on('interactionCreate', async interaction => {
 });
 
 //Commands handler
-fs.readdir("./commands/", (err, files) => {
-    if (err) console.error(error)
-    let jsfiles = files.filter(f => f.split(".").pop() === "js")
-    if (jsfiles.length <= 0) {
-        return console.log("No commands to log in ./commands/")
-    } else console.log(`${jsfiles.length} commands in ./commands/`)
-    jsfiles.forEach((f, i) => {
-        let props = require(`./commands/${f}`)
-        client.commands.set(f, props)
-    })
+const CommandFiles = fs.readdirSync("./commands").filter(fl => fl.endsWith(".js"));
+CommandFiles.forEach((f, i) => {
+    let props = require(`./commands/${f}`)
+    client.commands.set(f, props)
+    Commands.push(props.help.name)
 })
 
 client.on('messageCreate', async(message) => {
@@ -81,10 +76,12 @@ client.on('messageCreate', async(message) => {
 
 
 //Events handler
-client.on("threadCreate", (thread) => thread.join());
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
     const event = require(`./events/${file}`);
     Events.push(event.name)
-    client.on(event.name, (args) => event.execute(args, config));
+    client.on(event.name, (args) => event.execute(args, client));
 }
+
+//Loaded Events, SlashCommand, Commands
+console.log(`${Events.length} - Loaded Events \n${SlashCommands.length} - Loaded SlashCommands \n${Commands.length} - Loaded Commands`)
