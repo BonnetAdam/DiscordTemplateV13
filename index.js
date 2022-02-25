@@ -35,8 +35,8 @@ client.commands = new Collection();
 
 SlashCommandFiles.forEach(file => {
     const command = require(`./slash/${file}`)
-    SlashCommands.push(command.data.toJSON().name)
-    client.commands.set(command.data.name, command)
+    SlashCommands.push(command.help.name)
+    client.commands.set(command.help.name, command)
 })
 
 client.on('interactionCreate', async interaction => {

@@ -9,5 +9,8 @@
     "command": {
         "disabled": "This command is currently disabled",
         "notEnoughPermission": "You don't have enough permission to execute this command"
+    },
+    "help": {
+        "menu": "Help Menu"
     }
 }

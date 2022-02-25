@@ -29,7 +29,7 @@ module.exports.run = async(client, message, args, lang) => {
     command.push(slashCommands)
 
     const embed = new MessageEmbed()
-        .setTitle('Help Menu')
+        .setTitle(lang.help.menu)
         .setColor('AQUA')
         .setDescription(command.join('\n').replaceAll(',', "\n"))
 

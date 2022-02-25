@@ -8,7 +8,7 @@ const commandFiles = fs.readdirSync('./slash').filter(file => file.endsWith('.js
 
 for (const file of commandFiles) {
 	const command = require(`./slash/${file}`);
-	commands.push(command.data.toJSON());
+	commands.push(command.help);
 }
 
 const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
