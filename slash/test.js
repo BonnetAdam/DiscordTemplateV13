@@ -7,7 +7,15 @@ module.exports = {
 		.setName('test')
 		.setDescription('Test Command'),
 
-	async execute(interaction) {
+	async execute(interaction, lang) {
+        t
 		await interaction.reply({content: 'Everything work!', ephemeral: true});
 	},
+};
+
+module.exports.help = {
+    name: "test",
+    description: "test command",
+    permission: "ADMINISTRATOR",
+    enable: true
 };
