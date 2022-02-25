@@ -3,12 +3,16 @@
         "name": "English",
         "small": "EN"
     },
+    "bot": {
+        "connected": "Connected to"
+    },
     "error": {
         "unexpected": "An unexpected error occurred"
     },
     "command": {
         "disabled": "This command is currently disabled",
-        "notEnoughPermission": "You don't have enough permission to execute this command"
+        "notEnoughPermission": "You don't have enough permission to execute this command",
+        "everythingWork": "Everything Work!"
     },
     "help": {
         "menu": "Help Menu"

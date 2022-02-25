@@ -1,0 +1,20 @@
+{
+    "language": {
+        "name": "Français",
+        "small": "FR"
+    },
+    "bot": {
+        "connected": "Connecté à"
+    },
+    "error": {
+        "unexpected": "Une erreur non attendu c'est produite"
+    },
+    "command": {
+        "disabled": "Cette commande est actuellement désactivé",
+        "notEnoughPermission": "Vous n'avez pas assez de permissions pour executer cette commande",
+        "everythingWork": "Tous fonctionne comme prévu!"
+    },
+    "help": {
+        "menu": "Menu d'Aide"
+    }
+}

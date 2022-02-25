@@ -2,7 +2,7 @@ const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
 module.exports = {
 	async execute(interaction, lang) {
-		await interaction.reply({content: 'Everything work!', ephemeral: true});
+		await interaction.reply({content: lang.command.everythingWork, ephemeral: true});
 	},
 };
 

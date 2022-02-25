@@ -1,7 +1,7 @@
 const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.run = async(client, message, args, lang) => {
-    message.channel.send('Everything Work!')
+    message.channel.send(lang.command.everythingWork)
 }
 
 module.exports.help = {
