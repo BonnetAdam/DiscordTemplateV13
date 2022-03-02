@@ -11,9 +11,8 @@ module.exports.run = async(client, message, args, lang) => {
     CommandsFiles.forEach(file => {
         const authorPerms = message.channel.permissionsFor(message.author)
         const command = require(`../commands/${file}`)
-        if(!command || !authorPerms || !command.run || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || command.help.enable !== true || !authorPerms.has(command.help.permission)) return
+        if(!command || !authorPerms || !command.run || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || !command.help.show || command.help.enable !== true || command.help.show !== true || !authorPerms.has(command.help.permission)) return
         commands.push(`**${process.env.PREFIX}${command.help.name}** - ${command.help.description}`)
-        //commands.push({[command.help.categories]: {commandName: command.help.name}})
     })
 
     SlashCommandsFiles.forEach(file => {
@@ -37,8 +36,9 @@ module.exports.run = async(client, message, args, lang) => {
 }
 
 module.exports.help = {
-    name: "help",
-    description: "help command",
-    permission: "SEND_MESSAGES",
-    enable: true
+    name: "help", //Name of the commands
+    description: "help command", //Description of the commands
+    permission: "SEND_MESSAGES", //Required permissions to execute the commands (if you want no permissions it's recommanded to put SEND_MESSAGES)
+    enable: true, //If the command is under maintenance
+    show: true //If the command is showed on the help menu
 };

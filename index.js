@@ -12,7 +12,7 @@ const client = new Client({ intents: allIntent });
 
 let lang;
 
-//Lang Système
+//Lang Systeme
 if(process.env.LANGUAGES){
     lang = require(`./lang/${process.env.LANGUAGES}.json`)
     console.log(`[LANG] You choose the ${lang.language.name.toUpperCase()} as the bot languages`)
