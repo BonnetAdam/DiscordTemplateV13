@@ -1,6 +1,6 @@
 # Discord Bot Template V13
 
-Here is a discord bot template in the V13 of discord.js that I coded, so everyone can use it. Feel free to suggest some system that can be implement. Keep in mind this version may have issues, if you have some, you can contact me on discord, by mail, or by [issues ticket](https://github.com/Orima-MC/DISCORD-BOT-V3/issue) on github.
+Here is a discord bot template in the V13 of discord.js that I coded, so everyone can use it. Feel free to suggest some system that can be implement. Keep in mind this version may have issues, if you have some, you can contact me on discord, by mail, or by [issues ticket](https://github.com/CrazyOutOff/DiscordTemplateV13/issues) on github.
 
 ## Installing
 
