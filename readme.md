@@ -18,7 +18,7 @@ For the template to properly work you must set your [Discord Application Token](
 
 If you want to add you're own languages or simply change the text go into the folders lang, then in the dedicated file by default it will be en.json, you then need to copy this file create an other like fr.json, edit the text inside then simply edit the .env file with your language.
 
-## Complemented information
+## Complemented Information
 
 For the slash commands handler, for the **command type** is defined by [Application Command Type](https://discord.com/developers/docs/interactions/application-commands#application-command-object-application-command-types), the number type are:
 - 1: CHAT_INPUT: Classic slash command type
@@ -47,6 +47,7 @@ For the slash commands handler, for the **option type** is defined by the [Appli
 * Help command
 * Permissions the commands handler
 * Script for installing every dependency, run bot in dev production and deploy slash commands
+* Command to deploy your slash command (!deploy)
 * Thread Joinning System
 * Only developped in JavaScript
 * Use the package [discord.js](https://npmjs.com/discord.js)
