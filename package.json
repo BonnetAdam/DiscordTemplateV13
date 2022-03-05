@@ -1,5 +1,5 @@
 {
-  "name": "discordtmplatev13",
+  "name": "discordtemplatev13",
   "version": "1.0.0",
   "description": "Discord Bot Template made by github.com/CrazyOutOff",
   "main": "index.js",
@@ -9,7 +9,8 @@
     "deploy": "node deploy-commands.js"
   },
   "keywords": [
-    "github.com/CrazyOutOff"
+    "github.com/CrazyOutOff",
+    "Discord Bot", "Discord Bot Template", "Discord Bot Template V13", "Discord Bot V13"
   ],
   "author": "github.com/CrazyOutOff",
   "license": "ISC",

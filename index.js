@@ -40,7 +40,7 @@ SlashCommandFiles.forEach(file => {
 })
 
 client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
+    if(!interaction.isCommand() && !interaction.isMessageContextMenu() && !interaction.isContextMenu() && !interaction.isUserContextMenu()) return
     const authorPerms = interaction.channel.permissionsFor(interaction.member)
 
 	const command = client.commands.get(interaction.commandName);

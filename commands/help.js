@@ -18,7 +18,7 @@ module.exports.run = async(client, message, args, lang) => {
     SlashCommandsFiles.forEach(file => {
         const authorPerms = message.channel.permissionsFor(message.author)
         const command = require(`../slash/${file}`)
-        if(!command || !authorPerms || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || command.help.enable !== true || !authorPerms.has(command.help.permission)) return
+        if(!command || !authorPerms || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || !command.help.show || command.help.enable !== true || command.help.show !== true ||  !authorPerms.has(command.help.permission)) return
         slashCommands.push(`**/${command.help.name}** - ${command.help.description}`)
     })
 
