@@ -2,15 +2,31 @@
 require('dotenv').config('./.env')
 
 const fs = require('fs');
+var util = require('util');
 
 const { Client, Intents, Collection, Permissions, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
-const { ignoreRoot } = require('nodemon/lib/config/defaults');
 
 const allIntent = ['GUILDS', 'GUILD_MEMBERS', 'GUILD_BANS', 'GUILD_EMOJIS_AND_STICKERS', 'GUILD_INTEGRATIONS', 'GUILD_WEBHOOKS', 'GUILD_INVITES', 'GUILD_VOICE_STATES', 'GUILD_PRESENCES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'GUILD_MESSAGE_TYPING', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS', 'DIRECT_MESSAGE_TYPING']
 
 const client = new Client({ intents: allIntent });
 
 let lang;
+
+
+//Logger System
+var logger = fs.createWriteStream('log.txt', {
+    flags: 'a' // 'a' means appending (old data will be preserved)
+})
+
+console.log = function(line) {
+    var date = new Date();
+    if(date.getDate() < 9) dateDate = '0'+date.getDate()
+    if(date.getMonth() < 9) dateMonth = '0'+date.getMonth()
+    var formatDate = `[${dateDate || date.getDate()}-${dateMonth || date.getMonth()}-${date.getFullYear()}]`
+    var formatTime = `[${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}]`
+    logger.write(`\n${formatDate}-${formatTime}: ${line}`);
+    process.stdout.write(`\n${formatDate}-${formatTime}: ${line}`);
+}
 
 //Lang Systeme
 if(process.env.LANGUAGES){
@@ -82,7 +98,7 @@ client.on('messageCreate', async(message) => {
         if(!authorPerms.has(cmd.help.permission)) return message.channel.send(lang.command.notEnoughPermission)
         if(cmd.help.name !== command) return message.channel.send(lang.error.unexpected)
         if(cmd.help.enable === false) return message.channel.send(lang.command.disabled)
-        cmd.run(client, message, args, lang)
+        cmd.execute(client, message, args, lang)
     }
 })
 
@@ -96,4 +112,4 @@ for (const file of eventFiles) {
 }
 
 //Loaded Events, SlashCommand, Commands
-console.log(`${Events.length} - Loaded Events \n${SlashCommands.length} - Loaded SlashCommands \n${Commands.length} - Loaded Commands`)
+console.log(`\n${Events.length} - Loaded Events \n${SlashCommands.length} - Loaded SlashCommands \n${Commands.length} - Loaded Commands`)

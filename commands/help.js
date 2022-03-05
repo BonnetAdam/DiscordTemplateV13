@@ -2,7 +2,7 @@ const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('
 const fs = require('fs');
 let commands = [], command = [], slashCommands = [];
 
-module.exports.run = async(client, message, args, lang) => {
+module.exports.execute = async(client, message, args, lang) => {
 
     const CommandsFiles = fs.readdirSync("commands").filter(fl => fl.endsWith(".js"))
 

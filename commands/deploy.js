@@ -1,6 +1,6 @@
 const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
 
-module.exports.run = async(client, message, args, lang) => {
+module.exports.execute = async(client, message, args, lang) => {
     require('../deploy-commands')
     message.channel.send('Successfully reloaded application (/) commands.')
 }
