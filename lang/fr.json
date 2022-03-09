@@ -4,7 +4,8 @@
         "small": "FR"
     },
     "bot": {
-        "connected": "Connecté à"
+        "connected": "Connecté à",
+        "loaded": "J'ai chargée correctement:"
     },
     "error": {
         "unexpected": "Une erreur non attendu c'est produite"

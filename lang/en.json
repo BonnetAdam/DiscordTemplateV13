@@ -4,7 +4,8 @@
         "small": "EN"
     },
     "bot": {
-        "connected": "Connected to"
+        "connected": "Connected to",
+        "loaded": "I loaded successfully:"
     },
     "error": {
         "unexpected": "An unexpected error occurred"

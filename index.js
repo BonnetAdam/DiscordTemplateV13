@@ -20,8 +20,8 @@ var logger = fs.createWriteStream('log.txt', {
 
 console.log = function(line) {
     var date = new Date();
-    if(date.getDate() < 9) dateDate = '0'+date.getDate()
-    if(date.getMonth() < 9) dateMonth = '0'+date.getMonth()
+    if(date.getDate() <= 9) dateDate = '0'+date.getDate()
+    if(date.getMonth() <= 9) dateMonth = '0'+date.getMonth()
     var formatDate = `[${dateDate || date.getDate()}-${dateMonth || date.getMonth()}-${date.getFullYear()}]`
     var formatTime = `[${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}]`
     logger.write(`\n${formatDate}-${formatTime}: ${line}`);
@@ -32,7 +32,7 @@ console.log = function(line) {
 if(process.env.LANGUAGES){
     lang = require(`./lang/${process.env.LANGUAGES}.json`)
     console.log(`[LANG] You choose the ${lang.language.name.toUpperCase()} as the bot languages`)
-} else return console.log('Please go in your .env and set the variable LANGUAGES')
+} else console.log('Please go in your .env and set the variable LANGUAGES')
 
 //Connection to your Discord Bot
 client.login(process.env.TOKEN);
@@ -107,9 +107,12 @@ client.on('messageCreate', async(message) => {
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 for (const file of eventFiles) {
     const event = require(`./events/${file}`);
-    Events.push(event.name)
-    client.on(event.name, (args) => event.execute(args, client, lang));
+    Events.push(event.help.name)
+    client.on(event.help.name, (args) => {
+        if(event.help.enable !== true) return
+        event.execute(args, client, lang)
+    });
 }
 
 //Loaded Events, SlashCommand, Commands
-console.log(`\n${Events.length} - Loaded Events \n${SlashCommands.length} - Loaded SlashCommands \n${Commands.length} - Loaded Commands`)
+console.log(`${lang.bot.loaded}\n${Events.length} - Loaded Events \n${SlashCommands.length} - Loaded SlashCommands \n${Commands.length} - Loaded Commands`)
