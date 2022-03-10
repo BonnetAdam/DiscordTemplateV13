@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "insall": "npm ci",
+    "install": "npm ci",
     "deploy": "node deploy-commands.js"
   },
   "keywords": [

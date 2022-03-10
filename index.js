@@ -115,4 +115,4 @@ for (const file of eventFiles) {
 }
 
 //Loaded Events, SlashCommand, Commands
-console.log(`${lang.bot.loaded}\n${Events.length} - Loaded Events \n${SlashCommands.length} - Loaded SlashCommands \n${Commands.length} - Loaded Commands`)
+console.log(`${lang.bot.loaded}\n${Events.length} - Events \n${SlashCommands.length} - SlashCommands \n${Commands.length} - Commands`)

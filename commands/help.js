@@ -11,7 +11,7 @@ module.exports.execute = async(client, message, args, lang) => {
     CommandsFiles.forEach(file => {
         const authorPerms = message.channel.permissionsFor(message.author)
         const command = require(`../commands/${file}`)
-        if(!command || !authorPerms || !command.run || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || !command.help.show || command.help.enable !== true || command.help.show !== true || !authorPerms.has(command.help.permission)) return
+        if(!command || !authorPerms || !command.execute || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || !command.help.show || command.help.enable !== true || command.help.show !== true || !authorPerms.has(command.help.permission)) return
         commands.push(`**${process.env.PREFIX}${command.help.name}** - ${command.help.description}`)
     })
 
