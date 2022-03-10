@@ -12,12 +12,6 @@ const client = new Client({ intents: allIntent });
 
 let lang;
 
-
-//Logger System
-var logger = fs.createWriteStream('log.txt', {
-    flags: 'a' // 'a' means appending (old data will be preserved)
-})
-
 //Lang Systeme
 if(process.env.LANGUAGES){
     lang = require(`./lang/${process.env.LANGUAGES}.json`)
