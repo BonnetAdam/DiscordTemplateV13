@@ -16,6 +16,9 @@
         "everythingWork": "Everything Work!"
     },
     "help": {
-        "menu": "Help Menu"
+        "menu": "Help Menu",
+        "command": "Prefix Commands",
+        "slashcommand": "Slash Commands",
+        "none": "Unable to find any commands"
     }
 }

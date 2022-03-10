@@ -1,8 +1,9 @@
 const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.execute = async(client, message, args, lang) => {
-    require('../deploy-commands')
-    message.channel.send('Successfully reloaded application (/) commands.')
+    await require('../deploy-commands')
+    message.channel.send('Check your console. To see if there are a error.') 
+    
 }
 
 module.exports.help = {

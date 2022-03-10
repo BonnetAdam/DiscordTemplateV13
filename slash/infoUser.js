@@ -1,7 +1,7 @@
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
 module.exports.execute = async(interaction, lang) => {
-        const member = interaction.guild.members.cache.get(interaction.targetId)
+    const member = interaction.guild.members.cache.get(interaction.targetId)
         const embed = new MessageEmbed()
             .setTitle('Information')
             .setColor('PURPLE')

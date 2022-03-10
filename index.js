@@ -10,9 +10,14 @@ const allIntent = ['GUILDS', 'GUILD_MEMBERS', 'GUILD_BANS', 'GUILD_EMOJIS_AND_ST
 
 const client = new Client({ intents: allIntent });
 
-let lang;
+// Check if a token is given
+if(!process.env.TOKEN) {
+    console.log(`Your TOKEN is not entered. Be sure you have a .env file and a TOKEN="<your token>" inside.`)
+    process.exit()
+}
 
 //Lang Systeme
+let lang;
 if(process.env.LANGUAGES){
     lang = require(`./lang/${process.env.LANGUAGES}.json`)
     console.log(`[LANG] You choose the ${lang.language.name.toUpperCase()} as the bot languages`)

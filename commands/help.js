@@ -18,14 +18,15 @@ module.exports.execute = async(client, message, args, lang) => {
     SlashCommandsFiles.forEach(file => {
         const authorPerms = message.channel.permissionsFor(message.author)
         const command = require(`../slash/${file}`)
-        if(!command || !authorPerms || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || !command.help.show || command.help.enable !== true || command.help.show !== true ||  !authorPerms.has(command.help.permission)) return
+        if(!command || !authorPerms || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || !command.help.show || command.help.enable !== true || command.help.show !== true ||  !authorPerms.has(command.help.permission) || command.help.type !== 1) return
         slashCommands.push(`**/${command.help.name}** - ${command.help.description}`)
     })
 
-    command.push('**Commands**')
-    command.push(commands)
-    command.push('\n**Slash Commands**')
-    command.push(slashCommands)
+    if(commands.length > 0) command.push(`**${lang.help.command}**`)
+    if(commands.length > 0) command.push(commands)
+    if(slashCommands.length > 0) command.push(`\n**${lang.help.slashcommand}**`)
+    if(slashCommands.length > 0) command.push(slashCommands)
+    if(!commands.length > 0 && !slashCommands.length > 0) command.push(`${lang.help.none}`)
 
     const embed = new MessageEmbed()
         .setTitle(lang.help.menu)

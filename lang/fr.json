@@ -16,6 +16,8 @@
         "everythingWork": "Tous fonctionne comme prévu!"
     },
     "help": {
-        "menu": "Menu d'Aide"
+        "menu": "Menu d'Aide",
+        "command": "Commande Préfixs",
+        "slashcommand": "Slash Commandes"
     }
 }
