@@ -18,16 +18,6 @@ var logger = fs.createWriteStream('log.txt', {
     flags: 'a' // 'a' means appending (old data will be preserved)
 })
 
-console.log = function(line) {
-    var date = new Date();
-    if(date.getDate() <= 9) dateDate = '0'+date.getDate()
-    if(date.getMonth() <= 9) dateMonth = '0'+date.getMonth()
-    var formatDate = `[${dateDate || date.getDate()}-${dateMonth || date.getMonth()}-${date.getFullYear()}]`
-    var formatTime = `[${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}]`
-    logger.write(`\n${formatDate}-${formatTime}: ${line}`);
-    process.stdout.write(`\n${formatDate}-${formatTime}: ${line}`);
-}
-
 //Lang Systeme
 if(process.env.LANGUAGES){
     lang = require(`./lang/${process.env.LANGUAGES}.json`)
