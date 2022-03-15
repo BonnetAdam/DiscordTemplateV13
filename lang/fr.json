@@ -13,7 +13,8 @@
     "command": {
         "disabled": "Cette commande est actuellement désactivé",
         "notEnoughPermission": "Vous n'avez pas assez de permissions pour executer cette commande",
-        "everythingWork": "Tous fonctionne comme prévu!"
+        "everythingWork": "Tous fonctionne comme prévu!",
+        "unknow": "La commande est introuvable"
     },
     "help": {
         "menu": "Menu d'Aide",

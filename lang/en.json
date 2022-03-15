@@ -13,7 +13,8 @@
     "command": {
         "disabled": "This command is currently disabled",
         "notEnoughPermission": "You don't have enough permission to execute this command",
-        "everythingWork": "Everything Work!"
+        "everythingWork": "Everything Work!",
+        "unknow": "The command you execute doesn't exist"
     },
     "help": {
         "menu": "Help Menu",

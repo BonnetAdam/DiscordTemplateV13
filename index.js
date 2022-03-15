@@ -88,6 +88,9 @@ client.on('messageCreate', async(message) => {
         if(cmd.help.name !== command) return message.channel.send(lang.error.unexpected)
         if(cmd.help.enable === false) return message.channel.send(lang.command.disabled)
         cmd.execute(client, message, args, lang)
+    } else if(message.content.startsWith(process.env.PREFIX)) {
+        message.delete();
+        message.channel.send({content: `Aucune commande trouver`});
     }
 })
 
