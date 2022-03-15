@@ -7,6 +7,14 @@
         "connected": "Connected to",
         "loaded": "I loaded successfully:"
     },
+    "shard": {
+        "create": "A shard has been created",
+        "delete": "A shard has been deleted",
+        "error": "A shard have an error",
+        "reconnecting": "A shard has been reconnected",
+        "deconnecting": "A shard has benn deconnecting",
+        "resume": "A shard have resumed"
+    },
     "error": {
         "unexpected": "An unexpected error occurred"
     },

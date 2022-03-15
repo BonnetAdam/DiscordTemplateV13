@@ -51,6 +51,7 @@ For the slash commands handler, for the **option type** is defined by the [Appli
 * Thread Joinning System
 * Only developped in JavaScript
 * Use the package [discord.js](https://npmjs.com/discord.js)
+* Shard System (optimise the action)
 
 ## Authors
 

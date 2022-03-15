@@ -7,6 +7,14 @@
         "connected": "Connecté à",
         "loaded": "J'ai chargée correctement:"
     },
+    "shard": {
+        "create": "Une shard à été créer",
+        "delete": "Une shard à été supprimer",
+        "error": "Une shard à rencontrer une erreur",
+        "reconnecting": "Une shard à été reconnecter",
+        "deconnecting": "Une shard à été deconnecter",
+        "resume": "Une shard à continuer"
+    },
     "error": {
         "unexpected": "Une erreur non attendu c'est produite"
     },
