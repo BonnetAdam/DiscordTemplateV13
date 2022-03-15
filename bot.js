@@ -35,7 +35,7 @@ let Commands = [];
 const SlashCommandFiles = fs.readdirSync("./slash").filter(fl => fl.endsWith(".js"));
 client.commands = new Collection();
 
-SlashCommandFiles.forEach(file => {
+SlashCommandFiles.forEach(async file => {
     const command = require(`./slash/${file}`)
     SlashCommands.push(command.help.name)
     client.commands.set(command.help.name, command)
@@ -53,7 +53,7 @@ client.on('interactionCreate', async interaction => {
     if(!authorPerms.has(command.help.permission)) return interaction.reply({content: lang.command.notEnoughPermission, ephemeral: true})
 
 	try {
-		await command.execute(interaction, lang);
+		await command.execute(interaction, client, lang);
 	} catch (error) {
 
         const embed = new MessageEmbed()

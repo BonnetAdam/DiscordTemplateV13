@@ -1,7 +1,14 @@
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
-module.exports.execute = async(interaction, lang) => {
-    await interaction.reply({content: lang.command.everythingWork, ephemeral: true});
+module.exports.execute = async (interaction, client, lang) => {
+    const row = new MessageActionRow()
+    .addComponents(
+        new MessageButton()
+        .setCustomId('test')
+        .setLabel('Primary')
+        .setStyle('PRIMARY'),
+        );
+        await interaction.reply({content: lang.command.everythingWork, components: [row], ephemeral: true});
 }
 
 //              Slash Commands

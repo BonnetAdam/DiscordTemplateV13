@@ -10,13 +10,17 @@
   },
   "keywords": [
     "github.com/CrazyOutOff",
-    "Discord Bot", "Discord Bot Template", "Discord Bot Template V13", "Discord Bot V13"
+    "Discord Bot",
+    "Discord Bot Template",
+    "Discord Bot Template V13",
+    "Discord Bot V13"
   ],
   "author": "github.com/CrazyOutOff",
   "license": "ISC",
   "dependencies": {
     "@discordjs/rest": "^0.3.0",
     "discord-api-types": "^0.27.3",
+    "discord-modal": "^1.0.2",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
     "nodemon": "^2.0.15"
