@@ -23,6 +23,7 @@
     "discord-modal": "^1.0.2",
     "discord.js": "^13.6.0",
     "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "npm": "^8.5.4"
   }
 }
