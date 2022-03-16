@@ -11,7 +11,7 @@ module.exports.execute = async (interaction, client, lang) => {
      .setCustomId("modal_example")
      .setTitle("Modal Example")
      .addComponents(
-       new TextInputField()
+       new DiscordModal.TextInputField()
        .setLabel("What your name ?")
        .setStyle("short")
        .setPlaceholder("Enter your real name here")
@@ -20,12 +20,10 @@ module.exports.execute = async (interaction, client, lang) => {
        new DiscordModal.TextInputField()
        .setLabel("With what language do you code ?")
        .setStyle("short")
-       .setDefaultValue("JavaScript")
-       .setMin(10)
-       .setMax(55)
+       .setDefaultValue('Javascript')
        .setRequired(true)
        .setCustomId("ask_2"),
-       new DiscordModalTextInputField()
+       new DiscordModal.TextInputField()
        .setLabel("Do you have an story ?")
        .setStyle("paragraph")
        .setCustomId("ask_3")

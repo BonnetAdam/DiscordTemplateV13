@@ -5,7 +5,6 @@ const { ShardingManager } = require('discord.js');
 let lang;
 if(process.env.LANGUAGES){
     lang = require(`./lang/${process.env.LANGUAGES}.json`)
-    console.log(`[LANG] You choose the ${lang.language.name.toUpperCase()} as the bot languages`)
 } else {
     console.log('Please go in your .env and set the variable LANGUAGES')
     process.exit()
