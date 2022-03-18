@@ -13,7 +13,7 @@ const client = new Client({ intents: allIntent });
 //Connection to your Discord Bot
 client.login(process.env.TOKEN);
 
-//Lang Systeme
+//Lang System
 let lang;
 if(process.env.LANGUAGES){
     lang = require(`./lang/${process.env.LANGUAGES}.json`)
@@ -23,7 +23,7 @@ if(process.env.LANGUAGES){
     process.exit()
 }
 
-//Thread Joinning System
+//Thread Joining System
 client.on("threadCreate", (thread) => thread.join());
 
 //Handler info

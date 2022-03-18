@@ -2,7 +2,7 @@ const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('
 
 module.exports.execute = async(client, message, args, lang) => {
     await require('../deploy-commands')
-    message.channel.send('Check your console. To see if there are a error.') 
+    message.channel.send(lang.error.console)
     
 }
 
