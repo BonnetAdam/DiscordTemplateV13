@@ -1,3 +1,4 @@
+require('dotenv').config('./.env');
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
 const DiscordModal = require('discord-modal')

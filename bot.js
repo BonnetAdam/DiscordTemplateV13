@@ -69,7 +69,7 @@ client.on('interactionCreate', async interaction => {
 const CommandFiles = fs.readdirSync("./commands").filter(fl => fl.endsWith(".js"));
 CommandFiles.forEach((f, i) => {
     let props = require(`./commands/${f}`)
-    client.commands.set(f, props)
+    client.commands.set(props.help.name, props)
     Commands.push(props.help.name)
 })
 
@@ -78,29 +78,35 @@ client.on('messageCreate', async(message) => {
     const authorPerms = message.channel.permissionsFor(message.author)
     const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    let cmd = client.commands.get(command + ".js")
+    let cmd = client.commands.get(command)
     if (cmd) {
         message.delete();
-        if(!authorPerms.has(cmd.help.permission)) return message.channel.send(lang.command.notEnoughPermission)
-        if(cmd.help.name !== command) return message.channel.send(lang.error.unexpected)
-        if(cmd.help.enable === false) return message.channel.send(lang.command.disabled)
+        let notEnoughPermission = new MessageEmbed().setTitle(lang.command.notEnoughPermission).setColor(process.env.DefaultEmbedColor)
+        let unexpectedError = new MessageEmbed().setTitle(lang.error.unexpected).setColor(process.env.DefaultEmbedColor)
+        let commandDisabled = new MessageEmbed().setTitle(lang.command.disabled).setColor(process.env.DefaultEmbedColor)
+
+        if(!authorPerms.has(cmd.help.permission)) return message.channel.send({embeds: [notEnoughPermission]}) //Setup EMBED ERROR
+        if(cmd.help.name !== command) return message.channel.send({embeds: [unexpectedError]})
+        if(cmd.help.enable === false) return message.channel.send({embeds: [commandDisabled]})
         cmd.execute(client, message, args, lang)
     } else if(message.content.startsWith(process.env.PREFIX)) {
         message.delete();
-        message.channel.send({content: `Aucune commande trouver`});
+        message.channel.send({content: lang.error.commandNotFound});
     }
 })
 
 
 //Events handler
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
-for (const file of eventFiles) {
-    const event = require(`./events/${file}`);
-    Events.push(event.help.name)
-    client.on(event.help.name, (args) => {
-        if(event.help.enable !== true) return
-        event.execute(args, client, lang)
-    });
+if(eventFiles){
+    for (const file of eventFiles) {
+        const event = require(`./events/${file}`);
+        Events.push(event.help.name)
+        client.on(event.help.name, (args) => {
+            if(event.help.enable !== true) return
+            event.execute(args, client, lang)
+        });
+    }
 }
 
 //Loaded Events, SlashCommand, Commands

@@ -1,3 +1,4 @@
+require('dotenv').config('./.env');
 const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
 
 module.exports.execute = async(client, message, args, lang) => {

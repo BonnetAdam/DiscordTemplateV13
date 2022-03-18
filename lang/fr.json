@@ -16,7 +16,9 @@
         "resume": "Une shard à continuer"
     },
     "error": {
-        "unexpected": "Une erreur non attendu c'est produite"
+        "unexpected": "Une erreur non attendu c'est produite",
+        "console": "Verifiée votre console pour toute érreur",
+        "commandNotFound": "Aucune command trouvée"
     },
     "command": {
         "disabled": "Cette commande est actuellement désactivé",

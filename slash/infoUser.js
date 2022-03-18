@@ -1,10 +1,11 @@
+require('dotenv').config('./.env');
 const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
 
 module.exports.execute = async(interaction, client, lang) => {
     const member = interaction.guild.members.cache.get(interaction.targetId)
         const embed = new MessageEmbed()
             .setTitle('Information')
-            .setColor('PURPLE')
+            .setColor(process.env.DefaultEmbedColor)
             .addFields(
                 {name: `User`, value: `<@${member.user.id}>`},
                 {name: `Id`, value: `${member.user.id}`},

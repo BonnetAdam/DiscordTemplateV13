@@ -1,3 +1,4 @@
+require('dotenv').config('./.env');
 const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
 const fs = require('fs');
 let commands = [], command = [], slashCommands = [];
@@ -30,7 +31,7 @@ module.exports.execute = async(client, message, args, lang) => {
 
     const embed = new MessageEmbed()
         .setTitle(lang.help.menu)
-        .setColor('AQUA')
+        .setColor(process.env.DefaultEmbedColor)
         .setDescription(command.join('\n').replaceAll(',', "\n"))
 
     message.channel.send({embeds: [embed]})

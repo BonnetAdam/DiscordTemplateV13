@@ -17,7 +17,8 @@
     },
     "error": {
         "unexpected": "An unexpected error occurred",
-        "console": "Check your console. To see if there are a error."
+        "console": "Check your console. To see if there are a error.",
+        "commandNotFound": "No command found"
     },
     "command": {
         "disabled": "This command is currently disabled",
