@@ -85,7 +85,7 @@ client.on('messageCreate', async(message) => {
         let unexpectedError = new MessageEmbed().setTitle(lang.error.unexpected).setColor(process.env.DefaultEmbedColor)
         let commandDisabled = new MessageEmbed().setTitle(lang.command.disabled).setColor(process.env.DefaultEmbedColor)
 
-        if(!authorPerms.has(cmd.help.permission)) return message.channel.send({embeds: [notEnoughPermission]}) //Setup EMBED ERROR
+        if(!authorPerms.has(cmd.help.permission)) return message.channel.send({embeds: [notEnoughPermission]})
         if(cmd.help.name !== command) return message.channel.send({embeds: [unexpectedError]})
         if(cmd.help.enable === false) return message.channel.send({embeds: [commandDisabled]})
         cmd.execute(client, message, args, lang)
