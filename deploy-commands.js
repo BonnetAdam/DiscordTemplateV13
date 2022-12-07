@@ -1,6 +1,5 @@
 require('dotenv').config('./.env')
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
+const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 
 const commands = [];
@@ -11,7 +10,28 @@ for (const file of commandFiles) {
 	commands.push(command.help);
 }
 
-const rest = new REST({ version: '9' }).setToken(process.env.TOKEN);
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+
+// rest.put(Routes.applicationCommands(process.env.CLIENTID), { body: [] })
+// 	.then(() => console.log('Successfully deleted all application commands.'))
+// 	.catch(console.error);
+
+// 	rest.put(Routes.applicationGuildCommands(process.env.CLIENTID, process.env.GUILDID), { body: [] })
+// 	.then(() => console.log('Successfully deleted all guild commands.'))
+// 	.catch(console.error);
+// (async () => {
+// 	try {
+// 		console.log('Started refreshing application (/) commands.');
+
+// 		console.log(commands)
+// 		client.application.commands.set(commands);
+		
+// 		console.log('Successfully reloaded application (/) commands.');
+// 	} catch (error) {
+// 		console.error(error);
+// 	}
+// })();
+
 
 //Deleting older Guild Commands
 /*rest.get(Routes.applicationGuildCommands(process.env.CLIENTID, process.env.GUILDID))

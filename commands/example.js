@@ -1,12 +1,12 @@
-require('dotenv').config('./.env');
-const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
+require('dotenv').config(`${process.cwd()}/.env`);
+const { EmbedBuilder } = require('discord.js');
 
 module.exports.execute = async(client, message, args, lang) => {
     message.channel.send(lang.command.everythingWork)
 }
 
 module.exports.help = {
-    name: "test", //Name of the commands
+    name: "example", //Name of the commands
     description: "test command", //Description of the commands
     permission: "ADMINISTRATOR", //Required permissions to execute the commands (if you want no permissions it's recommanded to put SEND_MESSAGES)
     enable: true, //If the command is under maintenance

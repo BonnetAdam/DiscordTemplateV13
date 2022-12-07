@@ -18,12 +18,9 @@
   "author": "github.com/CrazyOutOff",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/rest": "^0.3.0",
-    "discord-api-types": "^0.29.0",
-    "discord-modal": "^1.0.2",
-    "discord.js": "^13.6.0",
-    "dotenv": "^16.0.0",
-    "nodemon": "^2.0.15",
-    "npm": "^8.5.4"
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20",
+    "npm": "^9.1.3"
   }
 }

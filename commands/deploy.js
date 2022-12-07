@@ -1,5 +1,6 @@
-require('dotenv').config('./.env');
-const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
+require('dotenv').config(`${process.cwd()}/.env`);
+const { EmbedBuilder } = require('discord.js');
+const fs = require('fs');
 
 module.exports.execute = async(client, message, args, lang) => {
     await require('../deploy-commands')

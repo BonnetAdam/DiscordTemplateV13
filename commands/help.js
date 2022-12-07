@@ -1,9 +1,10 @@
-require('dotenv').config('./.env');
-const { MessageActionRow, MessageButton, MessageEmbed, Permissions } = require('discord.js');
+require('dotenv').config(`${process.cwd()}/.env`);
+const { EmbedBuilder } = require('discord.js');
 const fs = require('fs');
-let commands = [], command = [], slashCommands = [];
 
 module.exports.execute = async(client, message, args, lang) => {
+
+    let commands = [], command = [], slashCommands = [];
 
     const CommandsFiles = fs.readdirSync("commands").filter(fl => fl.endsWith(".js"))
 
@@ -15,7 +16,7 @@ module.exports.execute = async(client, message, args, lang) => {
         if(!command || !authorPerms || !command.execute || !command.help || !command.help.name || !command.help.description || !command.help.permission || !command.help.enable || !command.help.show || command.help.enable !== true || command.help.show !== true || !authorPerms.has(command.help.permission)) return
         commands.push(`**${process.env.PREFIX}${command.help.name}** - ${command.help.description}`)
     })
-
+    
     SlashCommandsFiles.forEach(file => {
         const authorPerms = message.channel.permissionsFor(message.author)
         const command = require(`../slash/${file}`)
@@ -29,7 +30,7 @@ module.exports.execute = async(client, message, args, lang) => {
     if(slashCommands.length > 0) command.push(slashCommands)
     if(!commands.length > 0 && !slashCommands.length > 0) command.push(`${lang.help.none}`)
 
-    const embed = new MessageEmbed()
+    const embed = new EmbedBuilder()
         .setTitle(lang.help.menu)
         .setColor(process.env.DefaultEmbedColor)
         .setDescription(command.join('\n').replaceAll(',', "\n"))

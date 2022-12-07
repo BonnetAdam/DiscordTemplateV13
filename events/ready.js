@@ -1,5 +1,5 @@
-require('dotenv').config('./.env');
-const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js')
+require('dotenv').config(`${process.cwd()}/.env`);
+const { EmbedBuilder } = require('discord.js')
 
 module.exports.execute = async (message, client, lang) => {
     //Log that the bot is available

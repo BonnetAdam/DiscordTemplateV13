@@ -1,31 +1,31 @@
 require('dotenv').config(`${process.cwd()}/.env`);
-const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, ButtonStyle } = require('discord.js');
+const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, ButtonStyle, ModalBuilder, TextInputStyle, TextInputBuilder } = require('discord.js');
 
 module.exports.execute = async (interaction, client, lang) => {
-    const row = new ActionRowBuilder()
-    .addComponents(
-        new ButtonBuilder()
-        .setCustomId('modal')
-        .setLabel('Primary')
-        .setStyle(ButtonStyle.Primary),
-        );
-    
-    await interaction.reply({content: lang.command.everythingWork, components: [row], ephemeral: true});
+
+    const modal = new ModalBuilder()
+			.setCustomId('myModal')
+			.setTitle('My Modal');
+
+    const favoriteColorInput = new TextInputBuilder()
+		.setCustomId('favoriteColorInput')
+		    // The label is the prompt the user sees for this input
+			.setLabel("What's your favorite color?")
+		    // Short means only a single line of text
+			.setStyle(TextInputStyle.Short);
+
+    const firstActionRow = new ActionRowBuilder().addComponents(favoriteColorInput);
+
+    modal.addComponents(firstActionRow);
+
+    await interaction.showModal(modal);
 }
 
 //              Slash Commands
 module.exports.help = {
-    name: "test", //Name of the command
+    name: "modal", //Name of the command
     description: "test command", //Description of the command
     type: 1, //Type of the command. Read the readme.md file for more information
-    options: [
-        {
-            type: 3, //String
-            name: "test1", //Option Name
-            description: "description for the test1 arguments", //Option description
-            required: false //Does the value need to be put in
-        },
-    ], //Option of the command
     permission: "ADMINISTRATOR", //Required permission to use the command
     enable: true, //If the command is under maintenance mode
     show: true //If the command is show on the help menu

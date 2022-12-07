@@ -1,9 +1,9 @@
-require('dotenv').config('./.env');
-const { MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
+require('dotenv').config(`${process.cwd()}/.env`);
+const { EmbedBuilder } = require('discord.js');
 
 module.exports.execute = async(interaction, client, lang) => {
     const member = interaction.guild.members.cache.get(interaction.targetId)
-        const embed = new MessageEmbed()
+        const embed = new EmbedBuilder()
             .setTitle('Information')
             .setColor(process.env.DefaultEmbedColor)
             .addFields(
